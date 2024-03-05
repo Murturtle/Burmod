@@ -13,7 +13,7 @@ import { modules } from "./util/actualModules";
 
 ModAPI.require("player");
 
-addEventListener("keydown", function(e) {
+addEventListener("keydown", function (e) {
   if (
     e.location == KeyboardEvent.DOM_KEY_LOCATION_RIGHT &&
     e.key == "Shift" &&
@@ -28,7 +28,7 @@ addEventListener("keydown", function(e) {
   }
 });
 
-ModAPI.addEventListener("key", function(e) {
+ModAPI.addEventListener("key", function (e) {
   if (e.key == 54) {
     ui.destroy;
   }
@@ -39,7 +39,7 @@ ModAPI.addEventListener("key", function(e) {
   }
 });
 
-ModAPI.addEventListener("update", function() {
+ModAPI.addEventListener("update", function () {
   for (let key in modules) {
     if (modules.hasOwnProperty(key)) {
       modules[key].function.onUpdate();
@@ -173,7 +173,7 @@ function customUI() {
         servers.style.borderRadius = "15px";
         servers.style.fontFamily = "monospace";
 
-        pings.forEach(function(e) {
+        pings.forEach(function (e) {
           const cur = document.createElement("div");
           cur.style.margin = "10px";
           servers.appendChild(cur);
@@ -213,10 +213,10 @@ function customUI() {
                       dat["data"]["online"] + "/" + dat["data"]["max"];
                     playerinfo.style.color = "lime";
 
-                    const ping = document.createElement("div")
-                    ping.style.display = "inline-block"
+                    const ping = document.createElement("div");
+                    ping.style.display = "inline-block";
                     ping.style.float = "right";
-                    ping.innerText += (Date.now() - timeping) + "ms";
+                    ping.innerText += Date.now() - timeping + "ms";
                     playerinfo.appendChild(ping);
 
                     console.log(dat);
@@ -239,7 +239,6 @@ function customUI() {
 }
 
 var custui = setInterval(customUI, 50);
-
 
 //Custom Cursor
 document.body.getElementsByTagName("canvas")[0].style.cursor =

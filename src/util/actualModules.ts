@@ -1,7 +1,8 @@
 import * as flightMOD from "../cheats/flight";
-//import * as fullbrightMOD from "../cheats/autofish";
+import * as fullbrightMOD from "../cheats/autofish";
 import * as stepMOD from "../cheats/step";
 import * as autofishMOD from "../cheats/autofish";
+import * as servercrasherMOD from "../cheats/servercrasher";
 import * as ui from "../gui";
 
 function template(mod) {
@@ -52,5 +53,12 @@ export var modules = {
     function: new template(autofishMOD),
     category: "Player",
     description: "Automatically casts and reels rod",
+  },
+
+  servercrasher: {
+    name: "Server Crasher",
+    function: new template(servercrasherMOD),
+    category: "Exploit",
+    description: "Sends just a few swing packets ;)",
   }
 }
