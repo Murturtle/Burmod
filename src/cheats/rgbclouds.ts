@@ -1,5 +1,6 @@
 export function init(parent){
-    function hsl2rgb(h, s, l) {
+    
+    function hsl2rgb(h, s, l){
       s /= 100;
       l /= 100;
       const k = n => (n + h / 30) % 12;
@@ -8,13 +9,14 @@ export function init(parent){
         l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
       return [255 * f(0), 255 * f(8), 255 * f(4)];
     };
-    
-    parent.update = function (){
+  
+    parent.onUpdate = function (){
+      
       if(parent.getEnabled()){
         var rgb = hsl2rgb(Date.now()/10 % 360,100,50);
-        var red = rgb[0]
-        var green = rgb[1]
-        var blue = rgb[2]
+        var red = rgb[0];
+        var green = rgb[1];
+        var blue = rgb[2];
         var alpha = 255;
         ModAPI.mcinstance.$theWorld.$cloudColour = BigInt((red << 24) + (green << 16) + (blue << 8) + (alpha));
         }
@@ -22,7 +24,12 @@ export function init(parent){
 
     parent.onDisable = function(){
       if(ModAPI.mcinstance.$theWorld != null){
-        ModAPI.mcinstance.$theWorld.$cloudColour = hsl2rgb(360,100,100);
+        var rgb = hsl2rgb(0,0,100);
+        var red = rgb[0];
+        var green = rgb[1];
+        var blue = rgb[2];
+        var alpha = 255;
+        ModAPI.mcinstance.$theWorld.$cloudColour = BigInt((red << 24) + (green << 16) + (blue << 8) + (alpha))
       }
     }
   }
