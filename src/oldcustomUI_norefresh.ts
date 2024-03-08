@@ -1,80 +1,3 @@
-import { clientName } from "./util/clientName";
-import { logToConsole } from "./util/consoleLogger";
-import { logToChat } from "./util/chatLogger";
-import * as assets from "./assets";
-import * as ui from "./gui";
-
-logToConsole("Init...");
-logToChat("Init...");
-
-logToChat("Loading modules...");
-
-import { modules } from "./util/actualModules";
-
-ModAPI.require("player");
-
-addEventListener("keydown", function (e) {
-  if (
-    e.location == KeyboardEvent.DOM_KEY_LOCATION_RIGHT &&
-    e.key == "Shift" &&
-    !ui.isOpen()
-  ) {
-    ui.open();
-  }
-  for (let key in modules) {
-    if (modules.hasOwnProperty(key)) {
-      modules[key].function.onKey(e);
-    }
-  }
-});
-
-ModAPI.addEventListener("key", function (e) {
-  if (e.key == 54) {
-    ui.destroy;
-  }
-  for (let key in modules) {
-    if (modules.hasOwnProperty(key)) {
-      modules[key].function.onMCKey(e);
-    }
-  }
-});
-
-ModAPI.addEventListener("update", function () {
-  for (let key in modules) {
-    if (modules.hasOwnProperty(key)) {
-      modules[key].function.onUpdate();
-    }
-  }
-});
-
-const styleSheet = document.styleSheets[0];
-
-styleSheet.insertRule(`
-::-webkit-scrollbar {
-  width: 10px;
-}`);
-
-styleSheet.insertRule(`
-::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0);
-}`);
-
-styleSheet.insertRule(`
-::-webkit-scrollbar-thumb {
-background: rgba(100,100,100,0.5);
-filter: blur(4px);
-}`);
-
-styleSheet.insertRule(`@keyframes rgb {
-  0% { box-shadow: 0px 0px 40px rgba(255, 0, 0,0.75); }
-  16% { box-shadow: 0px 0px 40px rgba(255, 255, 0,0.75); }
-  33% { box-shadow: 0px 0px 40px rgba(0, 255, 0,0.75); }
-  50% { box-shadow: 0px 0px 40px rgba(0, 255, 255,0.75); }
-  66% { box-shadow: 0px 0px 40px rgba(0, 0, 255,0.75); }
-  83% { box-shadow: 0px 0px 40px rgba(255, 0, 255,0.75); }
-  100% { box-shadow: 0px 0px 40px rgba(255, 0, 0,0.75); }
-}`);
-
 function customUI() {
   //@ts-ignore
   if (ModAPI.mcinstance.$currentScreen != null) {
@@ -82,19 +5,25 @@ function customUI() {
       ModAPI.currentScreen().startsWith("net.minecraft.client.gui.GuiMainMenu")
     ) {
       //@ts-ignore
-      var singlePlayer = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[0];
+      var singlePlayer =
+        ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[0];
       //@ts-ignore
-      var multiPlayer = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[1];
+      var multiPlayer =
+        ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[1];
       //@ts-ignore
       var mods = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[2];
       //@ts-ignore
-      var forkOnGitHub = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[3];
+      var forkOnGitHub =
+        ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[3];
       //@ts-ignore
-      var options = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[4];
+      var options =
+        ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[4];
       //@ts-ignore
-      var editProfile = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[5];
+      var editProfile =
+        ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[5];
       //@ts-ignore
-      var launguage = ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[6];
+      var launguage =
+        ModAPI.mcinstance.$currentScreen.$buttonList.$array1.data[6];
       //@ts-ignore
       var currentScreen = ModAPI.mcinstance.$currentScreen;
 
@@ -173,7 +102,7 @@ function customUI() {
         servers.style.borderRadius = "15px";
         servers.style.fontFamily = "monospace";
 
-        pings.forEach(function (e) {
+        pings.forEach(function(e) {
           const cur = document.createElement("div");
           cur.style.margin = "10px";
           servers.appendChild(cur);
@@ -213,10 +142,11 @@ function customUI() {
                       dat["data"]["online"] + "/" + dat["data"]["max"];
                     playerinfo.style.color = "lime";
 
-                    const ping = document.createElement("div");
-                    ping.style.display = "inline-block";
+                    const ping = document.createElement("div")
+                    ping.style.display = "inline-block"
                     ping.style.float = "right";
-                    ping.innerText += Date.now() - timeping + "ms";
+                    ping.style.align = "right";
+                    ping.innerText += (Date.now() - timeping) + "ms";
                     playerinfo.appendChild(ping);
 
                     console.log(dat);
@@ -237,20 +167,8 @@ function customUI() {
     }
   }
 }
-
-var custui = setInterval(customUI, 50);
-
-//Custom Cursor
-document.body.getElementsByTagName("canvas")[0].style.cursor =
-  'url("' + assets.cursor + '"), auto';
-document.body.style.cursor = 'url("' + assets.cursor + '"), auto';
-
-function destroy() {
-  clearInterval(custui);
-  ui.destroy();
-  document.body.getElementsByTagName("canvas")[0].style.cursor = "auto";
-  document.body.style.cursor = "auto";
-  if (document.getElementById("serverpinglist") != null) {
-    document.getElementById("serverpinglist").remove();
-  }
+}
+}
+}
+}
 }

@@ -57,7 +57,6 @@ declare namespace ModAPI {
         function getBrightnessForRender(json: any): number;
         function reload(): void;
         function getCollisionBorderSize(): number;
-        function swingItem() : void
         let lastReportedPosX: number
         let lastReportedPosY: number
         let lastReportedPosZ: number

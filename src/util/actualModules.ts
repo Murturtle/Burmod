@@ -1,8 +1,8 @@
-import * as flightMOD from "../cheats/flight";
-import * as fullbrightMOD from "../cheats/autofish";
-import * as stepMOD from "../cheats/step";
-import * as autofishMOD from "../cheats/autofish";
-import * as servercrasherMOD from "../cheats/servercrasher";
+import * as flightMOD from "../cheats/flight.ts";
+import * as fullbrightMOD from "../cheats/autofish.ts";
+import * as stepMOD from "../cheats/step.ts";
+import * as autofishMOD from "../cheats/autofish.ts";
+import * as servercrasherMOD from "../cheats/servercrasher.ts";
 import * as ui from "../gui";
 
 function template(mod) {
