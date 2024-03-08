@@ -3,6 +3,7 @@ import * as fullbrightMOD from "../cheats/autofish.ts";
 import * as stepMOD from "../cheats/step.ts";
 import * as autofishMOD from "../cheats/autofish.ts";
 import * as servercrasherMOD from "../cheats/servercrasher.ts";
+import * as rgbcloudsMOD from "../cheats/rgbclouds.ts";
 import * as ui from "../gui";
 
 function template(mod) {
@@ -60,5 +61,12 @@ export var modules = {
     function: new template(servercrasherMOD),
     category: "Exploit",
     description: "Sends just a few swing packets ;)",
+  },
+
+  rgbclouds: {
+    name: "RGB Clouds",
+    function: new template(rgbcloudsMOD),
+    category: "Render",
+    description: "Clouds go weeee",
   }
 }
