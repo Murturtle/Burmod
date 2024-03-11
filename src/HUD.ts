@@ -10,12 +10,13 @@ ModAPI.settings.reload();
 export function inithud(){
   ModAPI.addEventListener("drawhud", function() {
     let sr = ModAPI.ScaledResolution
+    //@ts-ignore
     let gsm = ModAPI.GlStateManager
     gsm.pushMatrix();
     gsm.translate (4, 4, 0);
     gsm.scale(1.5, 1.5, 1);
     gsm.translate(-4, -4, 0); 
-    ModAPI.drawStringWithShadow(clientName, 4, 4, -1);
+    ModAPI.drawStringWithShadow({msg: clientName, x: 4,y: 4,color: -1});
     gsm.popMatrix();
   });
 }

@@ -333,6 +333,16 @@ declare namespace ModAPI {
         let experienceTotal: number;
     }
 
+    namespace settings {
+        let hudFps: Boolean
+        let hudCoords: Boolean
+        let hudPlayer: Boolean
+        let hudWorld: Boolean
+        let hudStats: Boolean
+        let hud24h: Boolean
+        function reload() : void
+    }
+
     /**for getting the scaled screen resolution. */
     namespace ScaledResolution{
         function getScaledWidth(): number
