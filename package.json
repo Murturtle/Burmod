@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Not cheating :)",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build-es": "esbuild --bundle ./src/main.ts --outfile=out/plugin.js --sourcemap=inline --watch=forever"
     "build-bun": "bun build --bundle ./src/main.ts --outdir=. --outfile=out/plugin.js --sourcemap=inline --watch --target browser --minify --entry-naming burmod.js"
   },
   "author": "Murturtle",
