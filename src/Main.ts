@@ -1,12 +1,13 @@
 import { clientName } from "./util/clientName.ts";
 import { logToConsole } from "./util/consoleLogger";
 import { logToChat } from "./util/chatLogger";
+import { inithud } from "./HUD.ts";
 import * as assets from "./assets";
 import * as ui from "./gui.ts";
 
 logToConsole("Init...");
 logToChat("Init...");
-
+inithud()
 logToChat("Loading modules...");
 
 import { modules } from "./util/actualModules";
