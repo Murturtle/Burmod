@@ -1,6 +1,4 @@
-ModAPI.require("player");
-ModAPI.require("network");
-ModAPI.require("settings");
+import { inithud } from "./require_all.ts";
 import { clientName } from "./util/clientName.ts";
 import { logToConsole } from "./util/consoleLogger";
 import { logToChat } from "./util/chatLogger";
