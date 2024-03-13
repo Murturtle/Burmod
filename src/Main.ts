@@ -7,12 +7,14 @@ import * as ui from "./gui.ts";
 
 logToConsole("Init...");
 logToChat("Init...");
+ModAPI.require("player");
+ModAPI.require("network");
+ModAPI.require("settings");
 inithud()
 logToChat("Loading modules...");
 
 import { modules } from "./util/actualModules";
 
-ModAPI.require("player");
 
 addEventListener("keydown", function(e) {
   if (
