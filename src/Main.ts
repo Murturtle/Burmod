@@ -1,3 +1,5 @@
+import { require_all } from "./require_all.ts";
+require_all()
 import { clientName } from "./util/clientName.ts";
 import { logToConsole } from "./util/consoleLogger";
 import { logToChat } from "./util/chatLogger";
@@ -12,7 +14,6 @@ logToChat("Loading modules...");
 
 import { modules } from "./util/actualModules";
 
-ModAPI.require("player");
 
 addEventListener("keydown", function(e) {
   if (
