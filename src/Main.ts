@@ -1,3 +1,6 @@
+ModAPI.require("player");
+ModAPI.require("network");
+ModAPI.require("settings");
 import { clientName } from "./util/clientName.ts";
 import { logToConsole } from "./util/consoleLogger";
 import { logToChat } from "./util/chatLogger";
@@ -7,9 +10,6 @@ import * as ui from "./gui.ts";
 
 logToConsole("Init...");
 logToChat("Init...");
-ModAPI.require("player");
-ModAPI.require("network");
-ModAPI.require("settings");
 inithud()
 logToChat("Loading modules...");
 
