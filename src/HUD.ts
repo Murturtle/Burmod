@@ -1,13 +1,19 @@
 import { clientName } from "./util/clientName.ts";
+import { require_all } from "./require_all.ts";
 export function inithud(){
+  ModAPI.addEventListener("update", function(){
+    require_all()
+    if(typeof ModAPI.settings !== 'undefined'){
+      ModAPI.settings.hud24h = false
+      ModAPI.settings.hudCoords = false
+      ModAPI.settings.hudFps = false
+      ModAPI.settings.hudPlayer = false
+      ModAPI.settings.hudStats = false
+      ModAPI.settings.hudWorld = false
+      ModAPI.settings.reload();
+    }
+  })
   ModAPI.addEventListener("drawhud", function() {
-    ModAPI.settings.hud24h = false
-    ModAPI.settings.hudCoords = false
-    ModAPI.settings.hudFps = false
-    ModAPI.settings.hudPlayer = false
-    ModAPI.settings.hudStats = false
-    ModAPI.settings.hudWorld = false
-    ModAPI.settings.reload();
     let sr = ModAPI.ScaledResolution
     //@ts-ignore
     let gsm = ModAPI.GlStateManager
