@@ -1,4 +1,5 @@
-import { inithud } from "./require_all.ts";
+import { require_all } from "./require_all.ts";
+require_all()
 import { clientName } from "./util/clientName.ts";
 import { logToConsole } from "./util/consoleLogger";
 import { logToChat } from "./util/chatLogger";
