@@ -2,7 +2,6 @@ import { clientName } from "./util/clientName.ts";
 import { require_all } from "./require_all.ts";
 export function inithud(){
   ModAPI.addEventListener("update", function(){
-    require_all()
     if(typeof ModAPI.settings !== 'undefined'){
       ModAPI.settings.hud24h = false
       ModAPI.settings.hudCoords = false
